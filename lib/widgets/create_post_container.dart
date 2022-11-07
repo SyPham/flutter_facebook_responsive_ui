@@ -35,21 +35,21 @@ class CreatePostContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FlatButton.icon(
+                TextButton.icon(
                     onPressed: () => print('Add to Story'),
                     icon: const Icon(Icons.videocam, color: Colors.red),
                     label: Text('Live')),
                 const VerticalDivider(
                   width: 8.0,
                 ),
-                FlatButton.icon(
+                TextButton.icon(
                     onPressed: () => print('Add to Story'),
                     icon: const Icon(Icons.photo, color: Colors.green),
-                    label: Text('Live')),
+                    label: Text('Photo')),
                 const VerticalDivider(
                   width: 8.0,
                 ),
-                FlatButton.icon(
+                TextButton.icon(
                     onPressed: () => print('Add to Story'),
                     icon: const Icon(Icons.video_call,
                         color: Colors.purpleAccent),

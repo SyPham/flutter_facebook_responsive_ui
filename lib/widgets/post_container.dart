@@ -174,7 +174,8 @@ class _PostButton extends StatelessWidget {
   final Icon icon;
   final String label;
   final Function onTap;
-  const _PostButton({Key key, this.icon, this.label, this.onTap});
+  const _PostButton({Key key, this.icon, this.label, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
