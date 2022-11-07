@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive_ui/config/palette.dart';
@@ -67,16 +65,10 @@ class _StoryCard extends StatelessWidget {
       width: 100,
       child: Stack(
         children: [
-          // CachedNetworkImage(
-          //     imageUrl: isAddStory ? currentUser.imageUrl : story.imageUrl,
-          //     height: double.infinity,
-          //     width: 110.0,
-          //     fit: BoxFit.cover,
-          //   )
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
-            child: Image.network(
-              isAddStory ? currentUser.imageUrl : story.imageUrl,
+            child: CachedNetworkImage(
+              imageUrl: isAddStory ? currentUser.imageUrl : story.imageUrl,
               fit: BoxFit.cover,
               width: 110,
               height: double.infinity,
