@@ -4,7 +4,7 @@ import 'package:flutter_facebook_responsive_ui/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NavScreen extends StatefulWidget {
-  const NavScreen({Key key}) : super(key: key);
+  const NavScreen({Key? key}) : super(key: key);
 
   @override
   State<NavScreen> createState() => _NavScreenState();

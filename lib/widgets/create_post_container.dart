@@ -3,8 +3,8 @@ import 'package:flutter_facebook_responsive_ui/models/user_model.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/widgets.dart';
 
 class CreatePostContainer extends StatelessWidget {
-  final User currentUser;
-  const CreatePostContainer({Key key, this.currentUser}) : super(key: key);
+  final User? currentUser;
+  const CreatePostContainer({Key? key, this.currentUser}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class CreatePostContainer extends StatelessWidget {
         children: [
           Row(
             children: [
-              ProfileAvatar(imageUrl: currentUser.imageUrl, isActive: true),
+              ProfileAvatar(imageUrl: currentUser!.imageUrl, isActive: true),
               const SizedBox(
                 width: 8.0,
               ),

@@ -9,9 +9,9 @@ class Stories extends StatelessWidget {
   final List<Story> stories;
 
   const Stories({
-    Key key,
-    @required this.currentUser,
-    @required this.stories,
+    Key? key,
+    required this.currentUser,
+    required this.stories,
   }) : super(key: key);
 
   @override
@@ -49,11 +49,11 @@ class Stories extends StatelessWidget {
 
 class _StoryCard extends StatelessWidget {
   final bool isAddStory;
-  final User currentUser;
-  final Story story;
+  final User? currentUser;
+  final Story? story;
 
   const _StoryCard({
-    Key key,
+    Key? key,
     this.isAddStory = false,
     this.currentUser,
     this.story,
@@ -68,7 +68,7 @@ class _StoryCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: CachedNetworkImage(
-              imageUrl: isAddStory ? currentUser.imageUrl : story.imageUrl,
+              imageUrl: isAddStory ? currentUser!.imageUrl : story!.imageUrl,
               fit: BoxFit.cover,
               width: 110,
               height: double.infinity,
@@ -102,8 +102,8 @@ class _StoryCard extends StatelessWidget {
                     ),
                   )
                 : ProfileAvatar(
-                    imageUrl: story.user.imageUrl,
-                    hasBorder: !story.isViewed,
+                    imageUrl: story!.user.imageUrl,
+                    hasBorder: story!.isViewed,
                   ),
           ),
           Positioned(
@@ -111,7 +111,7 @@ class _StoryCard extends StatelessWidget {
             left: 8.0,
             right: 8.0,
             child: Text(
-              isAddStory ? 'Add to Story' : story.user.name,
+              isAddStory ? 'Add to Story' : story!.user.name,
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

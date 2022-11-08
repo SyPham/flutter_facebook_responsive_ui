@@ -8,8 +8,8 @@ class ProfileAvatar extends StatelessWidget {
   final bool hasBorder;
 
   const ProfileAvatar({
-    Key key,
-    @required this.imageUrl,
+    Key? key,
+    required this.imageUrl,
     this.isActive = false,
     this.hasBorder = false,
   }) : super(key: key);
@@ -25,7 +25,7 @@ class ProfileAvatar extends StatelessWidget {
             radius: hasBorder ? 17.0 : 20.0,
             backgroundColor: Colors.grey[200],
             backgroundImage:
-                imageUrl != null ? CachedNetworkImageProvider(imageUrl) : null,
+                imageUrl != "" ? CachedNetworkImageProvider(imageUrl) : null,
           ),
         ),
         isActive

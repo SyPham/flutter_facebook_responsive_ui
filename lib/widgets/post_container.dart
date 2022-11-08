@@ -7,7 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class PostContainer extends StatelessWidget {
   final Post post;
-  const PostContainer({Key key, @required this.post}) : super(key: key);
+  const PostContainer({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class PostContainer extends StatelessWidget {
               ],
             ),
           ),
-          post.imageUrl != null
+          post.imageUrl != ""
               ? Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: CachedNetworkImage(
@@ -87,14 +87,14 @@ class PostContainer extends StatelessWidget {
 }
 
 class _PostHeader extends StatelessWidget {
-  final Post post;
-  const _PostHeader({Key key, this.post}) : super(key: key);
+  final Post? post;
+  const _PostHeader({Key? key, this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ProfileAvatar(imageUrl: post.user.imageUrl),
+        ProfileAvatar(imageUrl: post!.user.imageUrl),
         const SizedBox(
           width: 8.0,
         ),
@@ -103,13 +103,13 @@ class _PostHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                post.user.name,
+                post!.user.name,
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               Row(
                 children: [
                   Text(
-                    '${post.timeAgo} • ',
+                    '${post!.timeAgo} • ',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.grey[600],
@@ -129,8 +129,8 @@ class _PostHeader extends StatelessWidget {
 }
 
 class _PostStats extends StatelessWidget {
-  final Post post;
-  const _PostStats({Key key, this.post}) : super(key: key);
+  final Post? post;
+  const _PostStats({Key? key, this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -150,19 +150,19 @@ class _PostStats extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            '${post.likes}',
+            '${post!.likes}',
             style: TextStyle(color: Colors.grey[600]),
           ),
         ),
         Text(
-          '${post.comments} Comments',
+          '${post!.comments} Comments',
           style: TextStyle(color: Colors.grey[600]),
         ),
         const SizedBox(
           width: 8.0,
         ),
         Text(
-          '${post.shares} Shares',
+          '${post!.shares} Shares',
           style: TextStyle(color: Colors.grey[600]),
         )
       ],
@@ -171,19 +171,19 @@ class _PostStats extends StatelessWidget {
 }
 
 class _PostButton extends StatelessWidget {
-  final Icon icon;
-  final String label;
-  final Function onTap;
-  const _PostButton({Key key, this.icon, this.label, this.onTap})
+  final Icon? icon;
+  final String? label;
+  final VoidCallback? onTap;
+  const _PostButton({Key? key, this.icon, this.label, this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
         onPressed: onTap,
-        icon: icon,
+        icon: icon!,
         label: Text(
-          label,
+          label!,
           style: TextStyle(color: Colors.grey[600]),
         ));
   }
